@@ -1,0 +1,34 @@
+.images {
+  position: fixed;
+  background: lightsalmon;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 10;
+}
+
+.images img {
+  max-width: 100px;
+  cursor: zoom-in;
+  -webkit-box-shadow: 2px 3px 16px 0px rgba(22, 4, 58, 0.75);
+  -moz-box-shadow: 2px 3px 16px 0px rgba(22, 4, 58, 0.75);
+  box-shadow: 2px 3px 16px 0px rgba(22, 4, 58, 0.75);
+}
+
+.image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.image {
+  margin: 30px;
+}
+
+.popover {
+  display: none;
+  position: fixed;
+  pointer-events: none;
+  max-width: 500px;
+}
