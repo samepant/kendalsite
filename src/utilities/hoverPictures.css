@@ -1,0 +1,11 @@
+.hover-pic {
+  display: none;
+}
+
+.pic {
+  position: fixed;
+  z-index: 200;
+  min-width: 400px;
+  max-width: 200px;
+  box-shadow: 4px 4px 34px 0px rgba(143,59,202,1);
+}

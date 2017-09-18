@@ -1,6 +1,7 @@
 import React from 'react'
 import contentfulClient from './utilities/contentful'
 import './images.css'
+import HoverPictures from './utilities/hoverPictures'
 
 export default class extends React.Component {
   constructor () {
@@ -20,36 +21,11 @@ export default class extends React.Component {
       .catch(console.error)
   }
 
-  componentDidMount () {
-    //setup mouse image stuff
-    const mouse = {x:0,y:0}
-    const offset = {x:10, y:10}
-    const popover = document.getElementById('popover')
-    document.addEventListener('mousemove', function(e){
-        mouse.x = e.pageX
-        mouse.y = e.pageY
-        popover.style.left = (mouse.x + offset.x) + 'px'
-        popover.style.top = (mouse.y + offset.y) + 'px'
-    })
-
-    const images = document.getElementsByClassName('image')
-    Array.from(images).forEach(el => {
-      console.log(el)
-      el.addEventListener('mouseenter', () => {
-        console.log(this)
-      })
-    })
-  }
-
-  componentWillUnMount () {
-    document.removeEventListener('mousemove', function(e){})
-  }
-
   render () {
     return (
       <div className='images'>
         <ul className='image-wrapper'>
-          {this.state.entries.map(el => (<li key={el.sys.id}><img className='image' alt='' src={el.fields.image.fields.file.url} /></li>))}
+          {this.state.entries.map(el => (<li key={el.sys.id}><img className='image' alt='' src={el.fields.image.fields.file.url} /><HoverPictures projectId={el.sys.id} sourceURL={el.fields.image.fields.file.url} imageLocation="top" /></li>))}
         </ul>
         <div id='popover'> </div>
       </div>
